@@ -1,0 +1,30 @@
+﻿@model FGR.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Game</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GameTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GameTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Volver al listado de juegos", "Index") | 
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Eliminar", "Delete", new {id=Model.ID})
+</p>

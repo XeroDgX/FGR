@@ -1,0 +1,47 @@
+﻿@model FGR.Models.Game
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Game</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GameTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GameTitle)
+            @Html.ValidationMessageFor(model => model.GameTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Volver a listado de juegos", "Index") |
+    @Html.ActionLink("Detalles", "Details", new {id = Model.ID}) |
+    @Html.ActionLink("Eliminar", "Delete", new{id = Model.ID})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

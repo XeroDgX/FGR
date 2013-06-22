@@ -1,0 +1,68 @@
+﻿@model FGR.Models.Challenge
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Challenge</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GameID, "Game")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("GameID", String.Empty)
+            @Html.ValidationMessageFor(model => model.GameID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChallengerPlayerID, "Ranking")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ChallengerPlayerID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ChallengerPlayerID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RivalPlayerID, "Ranking1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RivalPlayerID", String.Empty)
+            @Html.ValidationMessageFor(model => model.RivalPlayerID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

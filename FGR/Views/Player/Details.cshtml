@@ -1,0 +1,39 @@
+﻿@model FGR.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>Jugador</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.Label("Estado")
+    </div>
+    <div class="display-field">
+        @{
+            if (Model.Status == false)
+            {
+                @Html.Label("Inactivo");
+            }
+            else
+            {
+                @Html.Label("Activo");
+            }
+        }
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Volver al listado de jugadores", "Index") |
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Eliminar", "Delete", new {id=Model.ID})
+</p>

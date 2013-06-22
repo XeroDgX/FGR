@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FGR.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear juego", "Create")
+</p>
+<table rules="all" style="border: black solid 1px">
+    <tr>
+        <th>
+            Titulo juego
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Editar
+        </th>
+        <th>
+            Detalles
+        </th>
+        <th>
+            Eliminar
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width: 200px">
+            @Html.DisplayFor(modelItem => item.GameTitle)
+        </td>
+        <td style="width: 100px">
+            @if (item.Status)
+            {
+                @Html.Label("Activo");
+            }
+            else
+            {
+                @Html.Label("Inactivo");
+            }
+        </td>
+        <td style="width: 100px">
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID })
+        </td>
+        <td style="width: 100px">
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID })
+        </td>
+        <td style="width: 100px">
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

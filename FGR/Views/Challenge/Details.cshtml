@@ -1,0 +1,50 @@
+﻿@model FGR.Models.Challenge
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Challenge</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Game.GameTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Game.GameTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ranking.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ranking.ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ranking1.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ranking1.ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

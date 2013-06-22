@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FGR.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Crear nuevo jugador", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <label style="font-weight: bold">Buscar jugador:</label>
+    @Html.TextBox("Nickname")
+@*<input type="text" name="Nickname" id="Nickname" />*@
+    <input type="submit" value="Buscar"/>
+}
+<table rules="all" border="solid" id="Prueba">
+    <tr>
+        <th>Nickname</th>
+        <th>Estado</th>
+        <th>Editar</th>
+        <th>Detalles</th>
+        <th>Eliminar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 200px">
+                @Html.DisplayFor(modelItem => item.Nickname)
+            </td>
+            <td style="width: 100px">
+                @{
+        if (item.Status)
+        {
+                    @Html.Label("Activo");
+        }
+        else
+        {
+                    @Html.Label("Inactivo");
+        }
+                }
+            </td>
+            <td style="width: 100px">
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+
+            </td>
+            <td style="width: 100px">
+                @Html.ActionLink("Detalles", "Details", new { id = item.ID })
+            </td>
+            <td style="width: 100px">
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>
+
+@*@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#Nickname").change(function(e) {
+                $.post('@Url.Action("Index")', { Nickname: $("#Nickname").val()}, function (data) {
+                    alert(data.length);
+                    $.each(data,function (i) {
+                        alert(data[i].Nickname);
+                        $.append("#Prueba");
+                    });
+                });
+            });
+        });
+    </script>
+}*@
+
