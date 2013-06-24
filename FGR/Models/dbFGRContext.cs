@@ -28,5 +28,7 @@ namespace FGR.Models
             modelBuilder.Configurations.Add(new PlayerMap());
             modelBuilder.Configurations.Add(new RankingMap());
         }
+       
+
     }
 }

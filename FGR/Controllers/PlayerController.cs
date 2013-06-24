@@ -19,7 +19,7 @@ namespace FGR.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(db.Players.ToList());
+            return View(db.Players.OrderBy(p=>p.Nickname).OrderByDescending(p=> p.Status));
         }
 
         [HttpPost]
